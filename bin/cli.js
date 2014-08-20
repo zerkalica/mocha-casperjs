@@ -32,6 +32,16 @@ this.casper = Casper.create({
     height: opts['viewport-height']
   }
 })
+
+if (typeof opts['vars'] === 'string') {
+  var vars = {};
+  opts['vars'].split(',').forEach(function(item) {
+    var parts = item.split('=');
+    vars[parts[0].trim()] = parts[1].trim();
+  });
+  this.vars = vars;
+}
+
 if (typeof opts['client-scripts'] === 'string') {
   this.casper.options.clientScripts = opts['client-scripts'].split(',')
 }

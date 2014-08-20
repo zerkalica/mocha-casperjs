@@ -128,6 +128,12 @@ casper.on('load.finished', function (resource) {
 
 A comma seperated list of files to inject into the remote client every page load.
 
+`--vars=baseUrl=http://mysite.com:8080,secodaryUrl=http://mysite2.com`
+
+Sets vars variable, which can be accessible in global scope in all tests.
+
+Example: `casper.start(vars.baseUrl + '/page1');`
+
 ## Custom 3rd party Reporters
 
 You can provide your own reporter via the `--reporter` flag. mocha-phantomjs will try to `require` the module and load it. Some things to take note of:
